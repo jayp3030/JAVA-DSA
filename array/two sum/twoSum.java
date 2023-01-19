@@ -10,8 +10,10 @@ public class twoSum {
                 if (arr[i]+arr[j] == target) {
                     System.out.println("["+i+","+j+"]");      //output : [0,3] [2,4]
                 }
+
             }
         }
+        System.out.print("No solution found");
     }
 
 }
