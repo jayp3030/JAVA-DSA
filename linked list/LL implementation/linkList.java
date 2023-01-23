@@ -73,6 +73,25 @@ class SinglyLinkedList{
             index++;
         }
     }
+
+    // searching in singly LL
+
+    public void searchInLL(int key){
+        Node currentNode = head;
+        int index = 0;
+
+        if (head != null) {
+            while (index<size) {
+                if (currentNode.value == key ) {
+                    System.out.println(currentNode.value + " found at location "+ index );
+                    return;
+                }
+                currentNode = currentNode.next;
+                index++;
+            }
+        }
+        System.out.println("Node not found");     
+    }
 }
 public class linkList{
     public static void main(String[] args) {
@@ -83,6 +102,8 @@ public class linkList{
         sLL.insertionSinglyLL(8, 2);
         sLL.insertionSinglyLL(9, 3);
         sLL.insertionSinglyLL(10, 4);
-        sLL.traversalSinglyLL();                                    // output : 6 -> 7 -> 8 -> 9 -> 10             
+        sLL.traversalSinglyLL();      
+        System.out.println();                                       // output : 6 -> 7 -> 8 -> 9 -> 10
+        sLL.searchInLL(10);                                    // output : 10 found at location 4        
     }
 }
