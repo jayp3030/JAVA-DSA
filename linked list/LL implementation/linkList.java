@@ -109,7 +109,7 @@ class SinglyLinkedList{
         }
         else if(location>=size){
 
-            if (size == 1) {
+            if (size == 0) {
                 head =null;
                 tail = null;
                 size--;
@@ -139,6 +139,13 @@ class SinglyLinkedList{
             size--;
         }
     }
+
+    // deletion of entire SLL
+
+    public void deleteEntireSLL(){
+        head = tail = null;
+        System.out.println("Entrire SLL deleted");
+    }
 }
 public class linkList{
     public static void main(String[] args) {
@@ -153,6 +160,8 @@ public class linkList{
         System.out.println();                                            // output : 6 -> 7 -> 8 -> 9 -> 10
         sLL.searchInLL(10);                                         // output : 10 found at location 4
         sLL.deletionOfNode(2);                                 // output :  6 -> 7 -> 9 -> 10
-        sLL.traversalSinglyLL();                                                  
+        sLL.traversalSinglyLL();           
+        sLL.deleteEntireSLL();
+                                           
     }
 }
