@@ -92,6 +92,53 @@ class SinglyLinkedList{
         }
         System.out.println("Node not found");     
     }
+
+    // deletion in singly LL
+
+    public void deletionOfNode(int location){
+        if (head == null) {
+            System.out.println("SLL not exist");
+            return;
+        }else if(location == 0){
+            head = head.next;
+            size--;
+
+            if (size==0) {
+                tail=null;
+            }
+        }
+        else if(location>=size){
+
+            if (size == 1) {
+                head =null;
+                tail = null;
+                size--;
+                return;
+            }
+            else{
+                Node currentNode = head;
+                int index = 0;
+
+                while(index<size-1){
+                    currentNode = currentNode.next;
+                    index++;
+                }
+                currentNode.next = null;
+                tail = currentNode;
+                size--;
+            }
+        }else {
+            Node currentNode = head;
+            int index = 0;
+            while(index<location-1){
+                currentNode = currentNode.next;
+                index++;
+            }
+            Node nextNode = currentNode.next;
+            currentNode.next = nextNode.next;
+            size--;
+        }
+    }
 }
 public class linkList{
     public static void main(String[] args) {
@@ -103,7 +150,9 @@ public class linkList{
         sLL.insertionSinglyLL(9, 3);
         sLL.insertionSinglyLL(10, 4);
         sLL.traversalSinglyLL();      
-        System.out.println();                                       // output : 6 -> 7 -> 8 -> 9 -> 10
-        sLL.searchInLL(10);                                    // output : 10 found at location 4        
+        System.out.println();                                            // output : 6 -> 7 -> 8 -> 9 -> 10
+        sLL.searchInLL(10);                                         // output : 10 found at location 4
+        sLL.deletionOfNode(2);                                 // output :  6 -> 7 -> 9 -> 10
+        sLL.traversalSinglyLL();                                                  
     }
 }
