@@ -53,15 +53,36 @@ class SinglyLinkedList{
         }
         size++ ;                                                    // because we add new node after each time we call function
     }
+
+    // traversal method of singly LL
+
+    public void traversalSinglyLL(){
+        Node currentNode = head;
+        int index = 0;
+
+        if (head == null) {
+            System.out.println("LL not exist");                     // if LL is blank
+        }
+
+        while(index < size){
+            System.out.print(currentNode.value);
+            if (currentNode.next != null) {                         // for arrow between value
+                System.out.print(" -> ");
+            }
+            currentNode = currentNode.next;
+            index++;
+        }
+    }
 }
 public class linkList{
     public static void main(String[] args) {
         SinglyLinkedList sLL = new SinglyLinkedList();
 
         sLL.createSinglyLinkList(7);
-        sLL.insertionSinglyLL(10, 0);
-        sLL.insertionSinglyLL(12, 3);
-
-        System.out.print(sLL.head.value);
+        sLL.insertionSinglyLL(6, 0);
+        sLL.insertionSinglyLL(8, 2);
+        sLL.insertionSinglyLL(9, 3);
+        sLL.insertionSinglyLL(10, 4);
+        sLL.traversalSinglyLL();                                    // output : 6 -> 7 -> 8 -> 9 -> 10             
     }
 }
