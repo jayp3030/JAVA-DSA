@@ -64,6 +64,28 @@ class DoublyLinkedList{
         }
         size++;
     }
+
+    // traversal in DLL
+
+    public void traversalInDLL(){
+        Node currentNode = head;
+        int index = 0;
+
+        if (head == null) {
+            System.out.println("LL not exist");
+        } else {
+            while (index<size) {
+                System.out.print(currentNode.value);
+    
+                if (currentNode.next != null) {
+                    System.out.print(" <-> ");
+                }
+                currentNode = currentNode.next;
+                index++;
+            }
+        }
+       
+    }
 }
 
 public class dll {
@@ -75,7 +97,7 @@ public class dll {
         dll.insertionInDLL(3, 2);
         dll.insertionInDLL(4, 3);
         dll.insertionInDLL(5, 4);
-        System.out.println(dll.head.value);
-        
+        dll.traversalInDLL();                                       // output : 1 <-> 2 <-> 3 <-> 4 <-> 5
+  
     }
 }
