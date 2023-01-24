@@ -147,7 +147,7 @@ class SinglyLinkedList{
         System.out.println("Entrire SLL deleted");
     }
 }
-public class linkList{
+public class sll{
     public static void main(String[] args) {
         SinglyLinkedList sLL = new SinglyLinkedList();
 
