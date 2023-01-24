@@ -137,22 +137,30 @@ class DoublyLinkedList{
             System.out.println("LL not exist");
         }
         else if (location == 0) {                                   // at the start
-            head = head.next;
-            head.prev = null;
-
-            if (size == 1) {
-                head = tail = null;
-            }
-            size--;
-        }
-        else if (location>=size-1) {                                // at the end
-            tail = tail.prev;
-            tail.next = null;
             
             if (size == 1) {
                 head = tail = null;
+                size--;
+                return;
             }
-            size--;
+            else{
+                head = head.next;
+                head.prev = null;
+                size--;
+            }
+        }
+        else if (location>=size-1) {                                // at the end
+            
+            if (size == 1) {
+                head = tail = null;
+                size--;
+                return;
+            }
+            else{
+                tail = tail.prev;
+                tail.next = null;
+                size--;
+            }
         }
         else                                                        // at any position btwn start and end
         {
