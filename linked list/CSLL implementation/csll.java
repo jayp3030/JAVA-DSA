@@ -169,13 +169,18 @@ public class csll {
         csll.createCSLL(5);
         csll.insertionInCSLL(6, 0);
         csll.insertionInCSLL(7, 2);
-        csll.insertionInCSLL(8, 3);                                 // output : 6 5 7 8
+        csll.insertionInCSLL(8, 3);                                                     // output : 6 5 7 8
         csll.traversalInCSLL();                                                         // output : 6 -> 5 -> 7 -> 8
         System.out.println();
+<<<<<<< HEAD
         csll.searchInCSLL(7);                                                      // output : 7 found at 2
         csll.deletionInCSLL(2);                                               
         csll.traversalInCSLL();                                                        // output : 6 -> 5 -> 8
         csll.deleteEntireCSLL();                                                       // output : Entire LL deleted
         csll.traversalInCSLL();                                                        // output : CSLL not exist
+=======
+        csll.searchInCSLL(7);                                                           // output : 7 found at 2
+        csll.traversalInCSLL();                                                         // output : 6 -> 5 -> 7 -> 8
+>>>>>>> b595fa532c4a575fe57cda1e77d72600bc26ce3e
     }
 }
