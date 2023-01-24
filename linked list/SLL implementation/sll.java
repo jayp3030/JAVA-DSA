@@ -107,7 +107,7 @@ class SinglyLinkedList{
                 tail=null;
             }
         }
-        else if(location>=size){
+        else if(location>=size-1){
 
             if (size == 1) {
                 head =null;
