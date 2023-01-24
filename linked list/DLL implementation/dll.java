@@ -187,6 +187,7 @@ class DoublyLinkedList{
 
         while (index<size) {
             currNode.prev = null;
+            currNode = currNode.next;
             index++;
         }
         head = tail = null;
