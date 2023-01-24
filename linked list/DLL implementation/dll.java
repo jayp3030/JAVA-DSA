@@ -178,6 +178,20 @@ class DoublyLinkedList{
             size--;
         }
     }
+
+    // deletion of entire LL 
+
+    public void deletionOfEntireDLL(){
+        Node currNode = head.next;
+        int index = 0;
+
+        while (index<size) {
+            currNode.prev = null;
+            index++;
+        }
+        head = tail = null;
+        System.out.println("Entire DLL is deleted");
+    }
 }
 
 public class dll {
@@ -196,6 +210,9 @@ public class dll {
         dll.searchingInDLL(4);                                  // output : 4 found at location 3
         dll.deletionInDLL(3);                              // output : 1 <-> 2 <-> 3 <-> 5
         dll.traversalInDLL(); 
+        System.out.println();
+        dll.deletionOfEntireDLL();                                  // output : Entire DLL is delleted
+        dll.traversalInDLL();                                       // output : LL not exist
   
     }
 }
