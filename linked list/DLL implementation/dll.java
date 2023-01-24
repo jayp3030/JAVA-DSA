@@ -68,12 +68,12 @@ class DoublyLinkedList{
     // traversal in DLL
 
     public void traversalInDLL(){
-        Node currentNode = head;
-        int index = 0;
-
+        
         if (head == null) {
             System.out.println("LL not exist");
         } else {
+            Node currentNode = head;
+            int index = 0;
             while (index<size) {
                 System.out.print(currentNode.value);
     
@@ -90,14 +90,13 @@ class DoublyLinkedList{
     // reverse traversal in DLL
 
     public void reverseTraversalInDLL(){
-        Node currentNode = tail;
-        int index = size-1;
-
+        
         if (head == null) {
             System.out.println("DLL not exist");
         }
         else{
-
+            Node currentNode = tail;
+            int index = size-1;
             while (index>=0) {
                 System.out.print(currentNode.value);
 
@@ -109,6 +108,25 @@ class DoublyLinkedList{
 
             }
         }
+    }
+
+    // searching in DLL
+
+    public void searchingInDLL(int key){
+        if (head != null) {
+            Node currentNode = head;
+            int index = 0;
+
+            while (index<size) {
+                if (currentNode.value == key) {
+                    System.out.println(key + " found at location "+ index);
+                    return;
+                }
+                currentNode = currentNode.next;
+                index++;
+            }
+        }
+        System.out.println("Node/LL not exist");
     }
 }
 
@@ -124,6 +142,8 @@ public class dll {
         dll.traversalInDLL();                                       // output : 1 <-> 2 <-> 3 <-> 4 <-> 5
         System.out.println();
         dll.reverseTraversalInDLL();                                // output : 5 <-> 4 <-> 3 <-> 2 <-> 1
+        System.out.println();
+        dll.searchingInDLL(4);                                  // output : 4 found at location 3
   
     }
 }
