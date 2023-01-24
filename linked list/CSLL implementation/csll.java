@@ -108,10 +108,10 @@ public class csll {
         csll.createCSLL(5);
         csll.insertionInCSLL(6, 0);
         csll.insertionInCSLL(7, 2);
-        csll.insertionInCSLL(8, 3);                                 // output : 6 5 7 8
+        csll.insertionInCSLL(8, 3);                                                     // output : 6 5 7 8
         csll.traversalInCSLL();                                                         // output : 6 -> 5 -> 7 -> 8
         System.out.println();
-        csll.searchInCSLL(7);                                                      // output : 7 found at 2
+        csll.searchInCSLL(7);                                                           // output : 7 found at 2
         csll.traversalInCSLL();                                                         // output : 6 -> 5 -> 7 -> 8
     }
 }
