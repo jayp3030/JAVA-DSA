@@ -13,7 +13,7 @@ class CircularSinglyLinkedList{
 
     Node node = new Node();
     node.value = nodeValue;
-    node.next = node;
+    node.next = node;                                             // note here the difference btwn SLL and CSLL
 
     head =node;
     tail=node;
