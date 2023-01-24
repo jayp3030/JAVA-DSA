@@ -128,6 +128,48 @@ class DoublyLinkedList{
         }
         System.out.println("Node/LL not exist");
     }
+
+    // deletion in DLL
+
+    public void deletionInDLL(int location){
+
+        if (head == null) {
+            System.out.println("LL not exist");
+        }
+        else if (location == 0) {                                   // at the start
+            head = head.next;
+            head.prev = null;
+
+            if (size == 1) {
+                head = tail = null;
+            }
+            size--;
+        }
+        else if (location>=size-1) {                                // at the end
+            tail = tail.prev;
+            tail.next = null;
+            
+            if (size == 1) {
+                head = tail = null;
+            }
+            size--;
+        }
+        else                                                        // at any position btwn start and end
+        {
+            Node currentNode = head;
+            int index = 0;
+
+            while (index<location-1) {
+                currentNode = currentNode.next;
+                index++;
+            }
+
+            Node nextNode = currentNode.next;
+            currentNode.next = nextNode.next;
+            nextNode.next.prev = currentNode;
+            size--;
+        }
+    }
 }
 
 public class dll {
@@ -144,6 +186,8 @@ public class dll {
         dll.reverseTraversalInDLL();                                // output : 5 <-> 4 <-> 3 <-> 2 <-> 1
         System.out.println();
         dll.searchingInDLL(4);                                  // output : 4 found at location 3
+        dll.deletionInDLL(3);                              // output : 1 <-> 2 <-> 3 <-> 5
+        dll.traversalInDLL(); 
   
     }
 }
