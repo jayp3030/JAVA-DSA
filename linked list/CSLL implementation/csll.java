@@ -68,15 +68,20 @@ class CircularSinglyLinkedList{
         Node currentNode = head;
         int index = 0;
 
-        while (index<size) {
-            System.out.print(currentNode.value);
-
-            if (index<size-1) {
-                System.out.print(" -> ");
+        if (head != null) {
+            while (index<size) {
+                System.out.print(currentNode.value);
+    
+                if (index<size-1) {
+                    System.out.print(" -> ");
+                }
+                currentNode = currentNode.next;
+                index++;
             }
-            currentNode = currentNode.next;
-            index++;
         }
+        System.out.println("CSLL not exist");
+        
+    
    }
 
    // searching in CSLL
@@ -94,10 +99,66 @@ class CircularSinglyLinkedList{
                 index++;
             }
         }
-        System.out.println("CSLL not exist");
-
-       
+        System.out.println("Node/LL not exist");   
    }
+
+   // deletion in CSLL
+
+   public void deletionInCSLL(int location){
+        if (head == null) {
+            System.out.println("CSLL not exist");
+            return;
+        }
+        else if (location == 0) {                                   // at the beginning
+            head = head.next;
+            tail.next = head;
+            size--;
+            if (size == 1) {
+                head = tail = head.next = null;
+                size--;
+                return;
+            }
+        }
+        else if (location>=size-1) {                                  // at the end
+            Node curretNode = head;
+            int index = 0;
+
+            while (index<size-1) {
+                curretNode =curretNode.next;
+                index++;
+            }
+
+            curretNode.next = head;
+            tail = curretNode;
+            size--;
+
+            if (size == 1) {
+                head=tail=head.next=null;
+                size--;
+                return;
+            }
+        }
+        else{                                                       // at specified location
+            Node curretNode = head;
+            int index = 0;
+
+            while (index<location-1) {
+                curretNode =curretNode.next;
+                index++;
+            }
+            Node nextNode = curretNode.next;
+            curretNode.next = nextNode.next;
+            size--;
+
+        }
+   }
+
+   // deletion of entire LL
+
+    public void deleteEntireCSLL(){
+        head = tail = tail.next = null;
+        System.out.println("Entrire LL deleted");
+    }
 }
 
 public class csll {
@@ -112,6 +173,9 @@ public class csll {
         csll.traversalInCSLL();                                                         // output : 6 -> 5 -> 7 -> 8
         System.out.println();
         csll.searchInCSLL(7);                                                      // output : 7 found at 2
-        csll.traversalInCSLL();                                                         // output : 6 -> 5 -> 7 -> 8
+        csll.deletionInCSLL(2);                                               
+        csll.traversalInCSLL();                                                        // output : 6 -> 5 -> 8
+        csll.deleteEntireCSLL();                                                       // output : Entire LL deleted
+        csll.traversalInCSLL();                                                        // output : CSLL not exist
     }
 }

@@ -103,13 +103,13 @@ class SinglyLinkedList{
             head = head.next;
             size--;
 
-            if (size==0) {
+            if (size==1) {
                 tail=null;
             }
         }
         else if(location>=size){
 
-            if (size == 0) {
+            if (size == 1) {
                 head =null;
                 tail = null;
                 size--;
