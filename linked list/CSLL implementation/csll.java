@@ -109,8 +109,12 @@ public class csll {
         csll.insertionInCSLL(6, 0);
         csll.insertionInCSLL(7, 2);
         csll.insertionInCSLL(8, 3);                                 // output : 6 5 7 8
+<<<<<<< HEAD
         csll.traversalInCSLL();                                                         // output : 6 -> 5 -> 7 -> 8
         System.out.println();
         csll.searchInCSLL(7);                                                      // output : 7 found at 2
+=======
+        csll.traversalInCSLL();                                     // output : 6 -> 5 -> 7 -> 8
+>>>>>>> b63e143b78fd3b59048a1dcddf9f82aec1b663a3
     }
 }
