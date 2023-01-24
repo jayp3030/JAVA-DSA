@@ -86,6 +86,30 @@ class DoublyLinkedList{
         }
        
     }
+
+    // reverse traversal in DLL
+
+    public void reverseTraversalInDLL(){
+        Node currentNode = tail;
+        int index = size-1;
+
+        if (head == null) {
+            System.out.println("DLL not exist");
+        }
+        else{
+
+            while (index>=0) {
+                System.out.print(currentNode.value);
+
+                if (currentNode.prev != null) {
+                    System.out.print(" <-> ");
+                }
+                currentNode = currentNode.prev;
+                index--;
+
+            }
+        }
+    }
 }
 
 public class dll {
@@ -98,6 +122,8 @@ public class dll {
         dll.insertionInDLL(4, 3);
         dll.insertionInDLL(5, 4);
         dll.traversalInDLL();                                       // output : 1 <-> 2 <-> 3 <-> 4 <-> 5
+        System.out.println();
+        dll.reverseTraversalInDLL();                                // output : 5 <-> 4 <-> 3 <-> 2 <-> 1
   
     }
 }
