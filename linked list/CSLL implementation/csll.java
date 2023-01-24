@@ -60,6 +60,24 @@ class CircularSinglyLinkedList{
     }
     size++;
    }
+
+   // traversal in CSLL
+
+   public void traversalInCSLL(){
+
+        Node currentNode = head;
+        int index = 0;
+
+        while (index<size) {
+            System.out.print(currentNode.value);
+
+            if (index<size-1) {
+                System.out.print(" -> ");
+            }
+            currentNode = currentNode.next;
+            index++;
+        }
+   }
 }
 
 public class csll {
@@ -71,6 +89,6 @@ public class csll {
         csll.insertionInCSLL(6, 0);
         csll.insertionInCSLL(7, 2);
         csll.insertionInCSLL(8, 3);                                 // output : 6 5 7 8
-         
+        csll.traversalInCSLL();                                                         // output : 6 -> 5 -> 7 -> 8
     }
 }
