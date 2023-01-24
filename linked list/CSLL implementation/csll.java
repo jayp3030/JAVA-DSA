@@ -156,8 +156,13 @@ class CircularSinglyLinkedList{
    // deletion of entire LL
 
     public void deleteEntireCSLL(){
+        if (head == null) {
+            System.out.println("CSLL not exis");
+            return;
+        }
         head = tail = tail.next = null;
         System.out.println("Entrire LL deleted");
+        
     }
 }
 
