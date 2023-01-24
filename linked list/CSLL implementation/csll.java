@@ -78,6 +78,26 @@ class CircularSinglyLinkedList{
             index++;
         }
    }
+
+   // searching in CSLL
+
+   public void searchInCSLL(int key){
+        Node currentNode = head;
+        int index = 0;
+        if (head!=null) {
+            while (index<size) {
+                if (currentNode.value == key) {
+                    System.out.println(currentNode.value + " found at "+ index);
+                    return;
+                }
+                currentNode = currentNode.next;
+                index++;
+            }
+        }
+        System.out.println("CSLL not exist");
+
+       
+   }
 }
 
 public class csll {
@@ -90,5 +110,7 @@ public class csll {
         csll.insertionInCSLL(7, 2);
         csll.insertionInCSLL(8, 3);                                 // output : 6 5 7 8
         csll.traversalInCSLL();                                                         // output : 6 -> 5 -> 7 -> 8
+        System.out.println();
+        csll.searchInCSLL(7);                                                      // output : 7 found at 2
     }
 }
