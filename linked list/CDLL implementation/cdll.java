@@ -91,7 +91,7 @@ class CircularDoublyLinkedList{
     }
 
     // reverse traversal in CDLL
-    
+
     public void reverseTraversalInCDLL(){
         
         if (head == null) {
@@ -112,6 +112,25 @@ class CircularDoublyLinkedList{
         }
       
     }
+
+    // searching in CDLL
+
+    public void searchingInCDLL(int key){
+        if (head != null) {
+            Node currentNode = head;
+            int index = 0;
+            while (index<size) {
+                if (currentNode.value == key) {
+                    System.out.println(key + " found at "+ index);
+                    return;
+                }
+                currentNode = currentNode.next;
+                index++;
+            }
+        }
+        System.out.println("Node/LL not exist");
+       
+    }
 }
 
 public class cdll {
@@ -125,6 +144,8 @@ public class cdll {
         cdll.traversalInCDLL();                                     // output : 9 <-> 10 <-> 11 <-> 12
         System.out.println();
         cdll.reverseTraversalInCDLL();                              // output : 12 <-> 11 <-> 10 <-> 9
+        System.out.println();
+        cdll.searchingInCDLL(11);                                   // output : 11 found at 2
         
     }
 }
