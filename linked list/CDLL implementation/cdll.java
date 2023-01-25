@@ -121,7 +121,7 @@ class CircularDoublyLinkedList{
             int index = 0;
             while (index<size) {
                 if (currentNode.value == key) {
-                    System.out.println(key + " found at "+ index);
+                    System.out.println(key + " found at index "+ index);
                     return;
                 }
                 currentNode = currentNode.next;
@@ -129,8 +129,76 @@ class CircularDoublyLinkedList{
             }
         }
         System.out.println("Node/LL not exist");
-       
     }
+
+    // deletion in CDLL
+
+    public void deletionInCDLL(int location){
+
+        if (head == null) {
+            System.out.println("LL not exist");
+        }
+        else if (location == 0) {                                   // deletion at start
+            if (size == 1) {
+                head = tail = null;
+                head.next = head.prev = null;
+                size--;
+            }
+            else
+            {
+                head = head.next;
+                head.prev = tail;
+                tail.next = head;
+                size--;
+            }
+        }
+        else if (location>=size) {                                  // deletion at end
+            if (size == 1) {
+                head = tail = null;
+                head.next = head.prev = null;
+                size--;
+            }
+            else
+            {
+                tail = tail.prev;
+                tail.next = head;
+                head.prev = tail;
+                size--;
+            }
+        }
+        else                                                        // deletion at specified location
+        {
+            Node currentNode = head;
+            int index = 0;
+
+            while (index<location-1) {
+                currentNode = currentNode.next;
+                index++;
+            }
+
+            Node nextNode = currentNode.next;
+
+            currentNode.next = nextNode.next;
+            nextNode.next.prev = currentNode;
+            size--;
+        }
+    }
+
+    // deletion of entire CDLL 
+
+    public void deletionOfEntireCDLL(){
+        Node currentNode = head;
+        int index = 0;
+
+        while (index<size) {
+            currentNode.prev = null;
+            currentNode = currentNode.next;
+            index++;
+        }
+        head = tail = null;
+        System.out.println("entire CDLL is deleted");
+    }
+
 }
 
 public class cdll {
@@ -145,7 +213,12 @@ public class cdll {
         System.out.println();
         cdll.reverseTraversalInCDLL();                              // output : 12 <-> 11 <-> 10 <-> 9
         System.out.println();
-        cdll.searchingInCDLL(11);                                   // output : 11 found at 2
+        cdll.searchingInCDLL(11);                                   // output : 11 found at index 2
+        cdll.deletionInCDLL(2);                                     // output : 9 <-> 10 <-> 12
+        cdll.traversalInCDLL();       
+        System.out.println();                  
+        cdll.deletionOfEntireCDLL();                                // output : entire CDLL is deleted
+        cdll.traversalInCDLL();                                     // output : LL not exist
         
     }
 }
