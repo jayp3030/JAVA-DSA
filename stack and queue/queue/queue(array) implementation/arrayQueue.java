@@ -51,7 +51,24 @@ class Queue{
             System.out.println(value +" inserted successfully");
         }
     }
-    
+
+    // dequeue operation in queue
+
+    public int dequeue(){
+
+        if (isEmpty()) {
+            System.out.println("queue is already empty");
+            return -1;
+        } else {
+            int result = arr[beginningOfQueue];
+            beginningOfQueue++;
+
+            if (beginningOfQueue > top) {
+                beginningOfQueue = top = -1;
+            }
+            return result;
+        }
+    }
 }
 public class arrayQueue {
     public static void main(String[] args) {
@@ -65,7 +82,10 @@ public class arrayQueue {
         q1.enqueue(50);                                             // output : 50 inserted successfully
 
         System.out.println(q1.isEmpty());                           // output : false
-        System.out.println(q1.isFull());                            // output : true                    
+        System.out.println(q1.isFull());                            // output : true      
+        
+        System.out.println(q1.dequeue());                           // output : 10
+        System.out.println(q1.dequeue());                           // output : 20
         
     }
 }
