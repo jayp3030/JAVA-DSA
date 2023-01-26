@@ -25,7 +25,7 @@ class Stack{
     public boolean isFull(){
 
         if (top == arr.length-1) {
-            System.out.println("Stack is full");
+            // System.out.println("Stack is full");
             return true;
         } else {
             return false;
@@ -46,6 +46,22 @@ class Stack{
         }
     }
 
+    // pop method in stack
+
+    public int pop(){
+
+        if (isEmpty()) {
+            System.out.println("stack is empty");
+            return -1;
+        } else {
+            
+            int topElement = arr[top];
+            top--;
+
+            return topElement;
+        }
+    }
+
 
 }
 public class arrayStack {
@@ -62,5 +78,8 @@ public class arrayStack {
         s1.push(4);                                                 // output : 4 is successfully inserted 
         s1.push(5);                                                 // output : 5 is successfully inserted 
         s1.push(6);                                                 // output : stack is already full
+
+        System.out.println(s1.pop());                                      // output : 5
+        System.out.println(s1.pop());                                      // output : 4
     }
 }
