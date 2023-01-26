@@ -32,6 +32,20 @@ class Stack{
         }
     }
 
+    // push method in stack
+
+    public void push(int value){
+
+        if (isFull()) {
+            System.out.println("stack is already full");
+        } else {
+            arr[top+1] = value;
+            top++;
+
+            System.out.println(value +" is successfully inserted");
+        }
+    }
+
 
 }
 public class arrayStack {
@@ -41,5 +55,12 @@ public class arrayStack {
 
         System.out.println(s1.isEmpty());                           // output : true     (there is no element so..)
         System.out.println(s1.isFull());                            // output : false
+
+        s1.push(1);                                                 // output : 1 is successfully inserted 
+        s1.push(2);                                                 // output : 2 is successfully inserted 
+        s1.push(3);                                                 // output : 3 is successfully inserted 
+        s1.push(4);                                                 // output : 4 is successfully inserted 
+        s1.push(5);                                                 // output : 5 is successfully inserted 
+        s1.push(6);                                                 // output : stack is already full
     }
 }
