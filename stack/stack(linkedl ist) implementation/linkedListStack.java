@@ -109,11 +109,24 @@ class Stack{
         linkList = new LinkedList();                                // initialization of ll
     }
 
+    // push operation on stack
+
+    public void push(int value){
+        linkList.insertionSinglyLL(value, 0);
+        System.out.println(value + " inserted in stack");
+    }
+
 
 }
 public class linkedListStack {
     public static void main(String[] args) {
         
         Stack s1 = new Stack();                                     // creation of stack
+
+        s1.push(1);
+        s1.push(2);
+        s1.push(3);
+        s1.push(4);
+        s1.push(5);
     }
 }
