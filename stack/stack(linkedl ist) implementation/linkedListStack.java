@@ -127,6 +127,21 @@ class Stack{
         }
     }
 
+    // pop operation in stack
+
+    public int pop(){
+
+        int result = -1;
+
+        if (isEmpty()) {
+            System.out.println("stack is empty");
+        } else {
+           result = linkList.head.value;
+           linkList.deletionOfNode(0);
+        }
+        return result;
+    }
+
 
 }
 public class linkedListStack {
@@ -134,12 +149,15 @@ public class linkedListStack {
         
         Stack s1 = new Stack();                                     // creation of stack
 
-        s1.push(1);
-        s1.push(2);
-        s1.push(3);
-        s1.push(4);
-        s1.push(5);
+        s1.push(1);                                                 // 1 inserted to stack
+        s1.push(2);                                                 // 2 inserted to stack
+        s1.push(3);                                                 // 3 inserted to stack
+        s1.push(4);                                                 // 4 inserted to stack
+        s1.push(5);                                                 // 5 inserted to stack
 
         System.out.println(s1.isEmpty());                           // output : false
+
+        System.out.println(s1.pop());                               // output : 5
+        System.out.println(s1.pop());                               // output : 4
     }
 }
