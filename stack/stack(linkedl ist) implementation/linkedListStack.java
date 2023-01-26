@@ -142,6 +142,18 @@ class Stack{
         return result;
     }
 
+    // peek operation in stack
+
+    public int peek(){
+
+        if (isEmpty()) {
+            System.out.println("stack is empty");
+            return -1;
+        } else {
+           return linkList.head.value;
+        }
+    }
+
 
 }
 public class linkedListStack {
@@ -159,5 +171,7 @@ public class linkedListStack {
 
         System.out.println(s1.pop());                               // output : 5
         System.out.println(s1.pop());                               // output : 4
+
+        System.out.println(s1.peek());                              // output : 3
     }
 }
