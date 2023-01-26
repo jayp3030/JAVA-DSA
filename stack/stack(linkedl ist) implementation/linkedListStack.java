@@ -106,7 +106,7 @@ class Stack{
     LinkedList linkList;
 
     public Stack(){                                                
-        linkList = new LinkedList();                                // initialization of ll
+        linkList = new LinkedList();                              
     }
 
     // push operation on stack
@@ -114,6 +114,17 @@ class Stack{
     public void push(int value){
         linkList.insertionSinglyLL(value, 0);
         System.out.println(value + " inserted in stack");
+    }
+
+    // isEmpty method in stack
+
+    public boolean isEmpty(){
+        if (linkList.head == null) {
+            System.out.println("stack is empty");
+            return true;
+        } else {
+            return false;
+        }
     }
 
 
@@ -128,5 +139,7 @@ public class linkedListStack {
         s1.push(3);
         s1.push(4);
         s1.push(5);
+
+        System.out.println(s1.isEmpty());                           // output : false
     }
 }
