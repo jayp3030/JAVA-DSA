@@ -80,6 +80,13 @@ class Queue{
            return arr[beginningOfQueue]; 
         }
     }
+
+    // deletion of entire queue
+
+    public void deleteQUeue(){
+        arr =null;
+        System.out.println("entire queue is deleted");
+    }
 }
 public class arrayQueue {
     public static void main(String[] args) {
@@ -99,6 +106,8 @@ public class arrayQueue {
         System.out.println(q1.dequeue());                           // output : 20
 
         System.out.println(q1.peek());                              // output : 30
+        q1.deleteQUeue();                                           // output : entire queue is deleted
+
         
     }
 }
