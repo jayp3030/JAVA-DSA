@@ -154,6 +154,14 @@ class Stack{
         }
     }
 
+    // deletion of entire stack
+
+    public void deleteStack(){
+        linkList.head = null;
+        System.out.println("stack is deleted");
+
+    }
+
 
 }
 public class linkedListStack {
@@ -173,5 +181,6 @@ public class linkedListStack {
         System.out.println(s1.pop());                               // output : 4
 
         System.out.println(s1.peek());                              // output : 3
+        s1.deleteStack();                                           // output : stack is deleted
     }
 }
