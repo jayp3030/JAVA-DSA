@@ -84,6 +84,24 @@ class CQ{
             return result;
         }
     }
+
+    // peek operation CQ
+
+    public int peek(){
+        if (isEmpty()) {
+            System.out.println("CQ is empty");
+            return -1;
+        } else {
+            return arr[beginningOfQueue];
+        }
+    }
+
+    // delete entire CQ
+
+    public void deleteQUeue(){
+        arr =null;
+        System.out.println("entire queue is deleted");
+    }
 }
 public class circularQueue {
     public static void main(String[] args) {
@@ -101,6 +119,10 @@ public class circularQueue {
 
         System.out.println(cq1.dequeue());                           // output : 10
         System.out.println(cq1.dequeue());                           // output : 20
+
+        System.out.println(cq1.peek());                             // output : 30
+
+        cq1.deleteQUeue();                                          // output : entire queue is deleted 
 
     }
 }
