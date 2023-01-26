@@ -62,6 +62,18 @@ class Stack{
         }
     }
 
+    // peek method in stack
+
+    public int peek(){
+
+        if (isEmpty()) {
+            System.out.println("stack is empty");
+            return -1;  
+        } else {
+            return arr[top];
+        }
+    }
+
 
 }
 public class arrayStack {
@@ -79,7 +91,9 @@ public class arrayStack {
         s1.push(5);                                                 // output : 5 is successfully inserted 
         s1.push(6);                                                 // output : stack is already full
 
-        System.out.println(s1.pop());                                      // output : 5
-        System.out.println(s1.pop());                                      // output : 4
+        System.out.println(s1.pop());                               // output : 5
+        System.out.println(s1.pop());                               // output : 4
+
+        System.out.println(s1.peek());                              // output : 3
     }
 }
