@@ -69,6 +69,17 @@ class Queue{
             return result;
         }
     }
+
+    // peek operation in queue
+
+    public int peek(){
+        if (isEmpty()) {
+            System.out.println("queue is empty");
+            return -1;  
+        } else {
+           return arr[beginningOfQueue]; 
+        }
+    }
 }
 public class arrayQueue {
     public static void main(String[] args) {
@@ -86,6 +97,8 @@ public class arrayQueue {
         
         System.out.println(q1.dequeue());                           // output : 10
         System.out.println(q1.dequeue());                           // output : 20
+
+        System.out.println(q1.peek());                              // output : 30
         
     }
 }
