@@ -74,6 +74,13 @@ class Stack{
         }
     }
 
+    // entire stack delete method
+
+    public void deleteStack(){
+        arr = null;
+        System.out.println("Entire stack is deleted");
+    }
+
 
 }
 public class arrayStack {
@@ -95,5 +102,6 @@ public class arrayStack {
         System.out.println(s1.pop());                               // output : 4
 
         System.out.println(s1.peek());                              // output : 3
+        s1.deleteStack();                                           // output : Entire stack is deleted
     }
 }
