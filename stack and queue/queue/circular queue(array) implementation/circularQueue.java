@@ -60,6 +60,30 @@ class CQ{
             System.out.println(value + " inserted successfully");
         }
     }
+
+    // dequeue operation in CQ
+
+    public int dequeue(){
+        if (isEmpty()) {
+            System.out.println("CQ is already empty");
+            return -1;
+        }
+        else{
+
+            int result = arr[beginningOfQueue];
+            arr[beginningOfQueue] = 0;
+
+            if (beginningOfQueue == top) {
+                beginningOfQueue = top = -1;
+            } else if (beginningOfQueue+1 == size) {
+                beginningOfQueue =0;
+            }
+            else {
+               beginningOfQueue++; 
+            }
+            return result;
+        }
+    }
 }
 public class circularQueue {
     public static void main(String[] args) {
@@ -74,5 +98,9 @@ public class circularQueue {
 
         System.out.println(cq1.isEmpty());                          // output : false
         System.out.println(cq1.isFull());                           // output : true
+
+        System.out.println(cq1.dequeue());                           // output : 10
+        System.out.println(cq1.dequeue());                           // output : 20
+
     }
 }
