@@ -151,6 +151,13 @@ class Queue{
             return list.head.value;
         }
     }
+
+    // deletion of entire queue
+
+    public void deleteQueue(){
+        list.head = list.tail = null;
+        System.out.println("entire queue is deleted");
+    }
 }
 
 public class linkedListQueue {
@@ -171,5 +178,7 @@ public class linkedListQueue {
         System.out.println(q.peek());                               // output : 30
 
         System.out.println(q.isEmpty());                            // output : false
+
+        q.deleteQueue();                                            // output : entire queue is deleted
     }
 }
