@@ -120,6 +120,13 @@ class Queue{
             return false;
         }
     }
+
+    // enqueue operation in queue
+
+    public void enqueue(int value){
+       list.insertionSinglyLL(value, list.size);
+       System.out.println(value+" inserted successfully");
+    }
 }
 
 public class linkedListQueue {
@@ -128,6 +135,12 @@ public class linkedListQueue {
         
         Queue q = new Queue();                                      // output : Queue is created successfully 
 
-        System.out.println(q.isEmpty());                            // output : true
+        q.enqueue(10);                                              // output : 10 inserted successfully
+        q.enqueue(20);                                              // output : 20 inserted successfully
+        q.enqueue(30);                                              // output : 30 inserted successfully
+        q.enqueue(40);                                              // output : 40 inserted successfully
+        q.enqueue(50);                                              // output : 50 inserted successfully
+
+        System.out.println(q.isEmpty());                            // output : false
     }
 }
