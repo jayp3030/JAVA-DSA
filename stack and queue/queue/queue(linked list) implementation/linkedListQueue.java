@@ -127,6 +127,19 @@ class Queue{
        list.insertionSinglyLL(value, list.size);
        System.out.println(value+" inserted successfully");
     }
+
+    // dequeue operation in queue
+
+    public int dequeue(){
+        if (isEmpty()) {
+            System.out.println("queue is empty");
+            return -1;
+        } else {
+            int result = list.head.value;
+            list.deletionOfNode(0);
+            return result;
+        }
+    }
 }
 
 public class linkedListQueue {
@@ -140,6 +153,9 @@ public class linkedListQueue {
         q.enqueue(30);                                              // output : 30 inserted successfully
         q.enqueue(40);                                              // output : 40 inserted successfully
         q.enqueue(50);                                              // output : 50 inserted successfully
+
+        System.out.println(q.dequeue());                            // output : 10
+        System.out.println(q.dequeue());                            // output : 20
 
         System.out.println(q.isEmpty());                            // output : false
     }
