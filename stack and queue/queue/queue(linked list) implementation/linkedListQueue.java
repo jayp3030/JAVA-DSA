@@ -140,6 +140,17 @@ class Queue{
             return result;
         }
     }
+
+    // peek operation in queue
+
+    public int peek(){
+        if (isEmpty()) {
+            System.out.println("queue is empty");
+            return -1;
+        } else {
+            return list.head.value;
+        }
+    }
 }
 
 public class linkedListQueue {
@@ -156,6 +167,8 @@ public class linkedListQueue {
 
         System.out.println(q.dequeue());                            // output : 10
         System.out.println(q.dequeue());                            // output : 20
+
+        System.out.println(q.peek());                               // output : 30
 
         System.out.println(q.isEmpty());                            // output : false
     }
