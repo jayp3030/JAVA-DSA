@@ -35,6 +35,18 @@ class BinaryTree{
         System.out.print(node.value + " ");
         inOrder(node.right);                                        // righ subtree
     }
+
+    // postOrder traversal
+
+    public void postOrder(BinaryNode node){
+
+        if (node == null) {
+            return;
+        }
+        postOrder(node.left);                                       // left subtree
+        postOrder(node.right);                                      // rigth subtree
+        System.out.println(node.value + " ");
+    }
 }
 public class binaryTreeLL {
     public static void main(String[] args) {
