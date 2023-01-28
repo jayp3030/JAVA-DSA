@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.LinkedList;
 class BinaryNode{
 
     public String value;
@@ -67,6 +68,31 @@ class BinaryTree{
                 q.add(currentNode.left); 
             }
         }
+    }
+
+    // searching in binary tree
+
+    public void search(String key){
+
+        Queue<BinaryNode> q = new LinkedList<BinaryNode>();
+        q.add(root);
+
+        while (!q.isEmpty()) {
+            BinaryNode currentNode = q.remove();
+
+            if (currentNode.value == key) {
+                System.out.println(key + " found in tree");
+                return;
+            } else {
+                if (currentNode.left != null) {
+                    q.add(currentNode.left);
+                } 
+                if (currentNode.right != null) {
+                    q.add(currentNode.right);
+                }
+            }
+        }
+        System.out.println(key + " not found in tree");
     }
 }
 public class binaryTreeLL {
