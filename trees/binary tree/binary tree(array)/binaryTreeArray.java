@@ -30,6 +30,17 @@ class BinaryTree{
             System.out.println("the BT is full");
         }
     }
+
+    // preOrder traversal 
+
+    public void preOrder(int index){
+        if (index > lastUsedIndex) {
+            return;
+        }
+        System.out.print(arr[index] + " ");
+        preOrder(index * 2);
+        preOrder(index * 2 + 1);
+    }
 }
 public class binaryTreeArray {
     public static void main(String[] args) {
@@ -43,5 +54,7 @@ public class binaryTreeArray {
         bt.insert("N5");                                            // output : N5 inserted successfully
         bt.insert("N6");                                            // output : N6 inserted successfully
         bt.insert("N7");                                            // output : the BT is full
+
+        bt.preOrder(1);                                             // output : N1 N2 N4 N5 N3 N6
     }
 }
