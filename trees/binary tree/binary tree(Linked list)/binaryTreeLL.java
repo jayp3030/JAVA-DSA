@@ -23,7 +23,7 @@ class BinaryTree{
         }
         System.out.print(node.value + " ");                       
         preOrder(node.left);                                        // left subtree
-        preOrder(node.right);                                       // rigth subtree
+        preOrder(node.right);                                       // right subtree
     }
 
     // inOrder traversal
@@ -35,7 +35,7 @@ class BinaryTree{
         }
         inOrder(node.left);                                         // left subtree
         System.out.print(node.value + " ");
-        inOrder(node.right);                                        // righ subtree
+        inOrder(node.right);                                        // right subtree
     }
 
     // postOrder traversal
@@ -46,7 +46,7 @@ class BinaryTree{
             return;
         }
         postOrder(node.left);                                       // left subtree
-        postOrder(node.right);                                      // rigth subtree
+        postOrder(node.right);                                      // right subtree
         System.out.print(node.value + " ");
     }
 
@@ -204,6 +204,13 @@ class BinaryTree{
         }
         System.out.println(key + " not exist in binary tree");
     }
+
+    // delete entire tree
+
+    public void deleteBT(){
+        root =null;
+        System.out.println("entire tree is deleted");
+    }
 }
 public class binaryTreeLL {
     public static void main(String[] args) {
@@ -234,6 +241,8 @@ public class binaryTreeLL {
         bt.deleteNode("N3");                                        // output : N3 is deleted
 
         bt.levelOrder();                                             // output : N1 N2 N9 N4 N5 N6 N7 N8 (after deletion)
+        System.out.println();
+        bt.deleteBT();                                              // output : entire tree is deleted
 
 
     }
