@@ -130,6 +130,80 @@ class BinaryTree{
             }
         }
     }
+
+
+    // ----------------------DELETION OF NODE --------------------- 
+
+    // get the deepest node of tree
+
+    public BinaryNode deepestNode(){
+        Queue<BinaryNode> q = new LinkedList<BinaryNode>();
+        q.add(root);
+
+        BinaryNode currentNode = null;
+
+        while(!q.isEmpty()){
+            currentNode = q.remove();
+
+            if (currentNode.left != null) {
+                q.add(currentNode.left);
+            }
+            if (currentNode.right != null) {
+                q.add(currentNode.right);
+            }
+        }
+        return currentNode;
+    }
+
+    // delete the deepest node in binary tree
+
+    public void deleteDeepest(){
+        Queue<BinaryNode> q = new LinkedList<BinaryNode>();
+        q.add(root);
+
+        BinaryNode prevNode , CurrentNode = null;
+
+        while (! q.isEmpty()) {
+            prevNode = CurrentNode;
+            CurrentNode = q.remove();
+
+            if (CurrentNode.left == null) {
+                prevNode.right = null;
+                return;
+            } else if (CurrentNode.right == null) {
+                CurrentNode.left =null;
+                return; 
+            }
+            else{
+                q.add(CurrentNode.left);
+                q.add(CurrentNode.right);
+            }
+        }
+    }
+
+    // delete given node 
+
+    public void deleteNode(String key){
+        Queue<BinaryNode> q = new LinkedList<BinaryNode>();
+        q.add(root);
+
+        while (!q.isEmpty()) {
+            BinaryNode currentNode = q.remove();
+
+            if (currentNode.value == key) {                         // find the node you want to delete
+                currentNode.value = deepestNode().value;            // find the deepest node & set the node value to deepest node value
+                deleteDeepest();                                    // delete the deepest node
+                System.out.println(key +" is deleted");
+                return;
+            } else {
+                if (currentNode.left != null) {
+                    q.add(currentNode.left);
+                    q.add(currentNode.right);
+                }
+            }
+        }
+        System.out.println(key + " not exist in binary tree");
+    }
 }
 public class binaryTreeLL {
     public static void main(String[] args) {
@@ -152,10 +226,15 @@ public class binaryTreeLL {
         System.out.println();
         bt.postOrder(bt.root);                                      // output : N8 N9 N4 N5 N2 N6 N7 N3 N1 
         System.out.println();
-        bt.levelOrder();                                            // output : N1 N2 N3 N4 N5 N6 N7 N8 N9
+        bt.levelOrder();                                            // output : N1 N2 N3 N4 N5 N6 N7 N8 N9(before deletion)
         System.out.println();
 
         bt.search("N6");                                            // output : N6 found in tree
         bt.search("N10");                                            // output : N10 not found in tree
+        bt.deleteNode("N3");                                        // output : N3 is deleted
+
+        bt.levelOrder();                                             // output : N1 N2 N9 N4 N5 N6 N7 N8 (after deletion)
+
+
     }
 }
