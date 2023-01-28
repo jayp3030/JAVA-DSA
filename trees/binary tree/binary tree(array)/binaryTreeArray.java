@@ -41,6 +41,28 @@ class BinaryTree{
         preOrder(index * 2);
         preOrder(index * 2 + 1);
     }
+
+    // inOrder traversal
+
+    public void inOrder(int index){
+        if (index > lastUsedIndex) {
+            return;
+        }
+        inOrder(index*2);
+        System.out.print(arr[index] + " ");
+        inOrder(index*2+1);
+    }
+
+    // postOrder traversal
+
+    public void postOrder(int index){
+        if (index > lastUsedIndex) {
+            return;
+        }
+        postOrder(index*2);
+        postOrder(index*2 + 1);
+        System.out.print(arr[index] + " ");
+    }
 }
 public class binaryTreeArray {
     public static void main(String[] args) {
@@ -56,5 +78,9 @@ public class binaryTreeArray {
         bt.insert("N7");                                            // output : the BT is full
 
         bt.preOrder(1);                                             // output : N1 N2 N4 N5 N3 N6
+        System.out.println();
+        bt.inOrder(1);                                             // output : N4 N2 N5 N1 N6 N3
+        System.out.println();
+        bt.postOrder(1);                                            // output : N4 N5 N2 N6 N3 N1
     }
 }
