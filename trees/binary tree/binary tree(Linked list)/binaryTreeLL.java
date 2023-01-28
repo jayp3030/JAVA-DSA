@@ -12,16 +12,28 @@ class BinaryTree{
         this.root = null;
     }
 
-    // PreOrder traversal
+    // preOrder traversal
 
-    public void PreOrder(BinaryNode node){
+    public void preOrder(BinaryNode node){
 
         if (node == null) {
             return;
         }
-        System.out.println(node.value + " ");                       // root
-        PreOrder(node.left);                                        // left subtree
-        PreOrder(node.right);                                       // rigth subtree
+        System.out.print(node.value + " ");                       
+        preOrder(node.left);                                        // left subtree
+        preOrder(node.right);                                       // rigth subtree
+    }
+
+    // inOrder traversal
+
+    public void inOrder(BinaryNode node){
+
+        if (node == null) {
+            return; 
+        }
+        inOrder(node.left);                                         // left subtree
+        System.out.print(node.value + " ");
+        inOrder(node.right);                                        // righ subtree
     }
 }
 public class binaryTreeLL {
