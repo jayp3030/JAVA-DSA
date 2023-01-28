@@ -63,6 +63,14 @@ class BinaryTree{
         postOrder(index*2 + 1);
         System.out.print(arr[index] + " ");
     }
+
+    // levelOrder traversal (simply traverse the array)
+
+    public void levelOrder(){
+        for (int i = 1; i <= lastUsedIndex; i++) {
+            System.out.print(arr[i] + " ");
+        }
+    }
 }
 public class binaryTreeArray {
     public static void main(String[] args) {
@@ -82,5 +90,7 @@ public class binaryTreeArray {
         bt.inOrder(1);                                             // output : N4 N2 N5 N1 N6 N3
         System.out.println();
         bt.postOrder(1);                                            // output : N4 N5 N2 N6 N3 N1
+        System.out.println();
+        bt.levelOrder();                                           // output : N1 N2 N3 N4 N5 N6
     }
 }
