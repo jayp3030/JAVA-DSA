@@ -125,6 +125,6 @@ public class binaryTreeArray {
         bt.search("N7");                                            // output : N7 does not exist in binary tree
 
         bt.delete("N3");                                            // output : N3 is deleted successfully
-        bt.levelOrder();                                            // output : N1 N2 N6 N4 N5
+        bt.levelOrder();                                            // output : N1 N2 N6 N4 N5 (after deletion)
     }
 }
