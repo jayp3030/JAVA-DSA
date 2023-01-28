@@ -84,6 +84,20 @@ class BinaryTree{
         System.out.println(key + " does not exist in binary tree");
         return -1;
     }
+
+    // deletion of node in binary tree
+
+    public void delete(String value){
+        int location = search(value);
+
+        if (location == -1) {
+            return;
+        } else {
+            arr[location] = arr[lastUsedIndex];
+            lastUsedIndex--;
+            System.out.println(value + " successfully deleted");
+        }
+    }
 }
 public class binaryTreeArray {
     public static void main(String[] args) {
@@ -104,10 +118,13 @@ public class binaryTreeArray {
         System.out.println();
         bt.postOrder(1);                                            // output : N4 N5 N2 N6 N3 N1
         System.out.println();
-        bt.levelOrder();                                            // output : N1 N2 N3 N4 N5 N6
+        bt.levelOrder();                                            // output : N1 N2 N3 N4 N5 N6 (before deletion)
         System.out.println();
 
         bt.search("N3");                                            // output : N3 found at index 3
         bt.search("N7");                                            // output : N7 does not exist in binary tree
+
+        bt.delete("N3");                                            // output : N3 is deleted successfully
+        bt.levelOrder();                                            // output : N1 N2 N6 N4 N5
     }
 }
