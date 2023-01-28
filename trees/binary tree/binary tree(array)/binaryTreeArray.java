@@ -71,6 +71,19 @@ class BinaryTree{
             System.out.print(arr[i] + " ");
         }
     }
+
+    // searching in binary tree
+
+    public int search(String key){
+        for (int i = 1; i < lastUsedIndex; i++) {
+            if (arr[i] == key) {
+                System.out.println(key +" fount at index "+i);
+                return i;
+            }  
+        }
+        System.out.println(key + " does not exist in binary tree");
+        return -1;
+    }
 }
 public class binaryTreeArray {
     public static void main(String[] args) {
@@ -91,6 +104,10 @@ public class binaryTreeArray {
         System.out.println();
         bt.postOrder(1);                                            // output : N4 N5 N2 N6 N3 N1
         System.out.println();
-        bt.levelOrder();                                           // output : N1 N2 N3 N4 N5 N6
+        bt.levelOrder();                                            // output : N1 N2 N3 N4 N5 N6
+        System.out.println();
+
+        bt.search("N3");                                            // output : N3 found at index 3
+        bt.search("N7");                                            // output : N7 does not exist in binary tree
     }
 }
