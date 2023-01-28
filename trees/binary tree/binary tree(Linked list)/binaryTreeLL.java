@@ -1,3 +1,4 @@
+import java.util.*;
 class BinaryNode{
 
     public String value;
@@ -46,6 +47,26 @@ class BinaryTree{
         postOrder(node.left);                                       // left subtree
         postOrder(node.right);                                      // rigth subtree
         System.out.println(node.value + " ");
+    }
+
+    // levelOrder traversal
+
+    public void levelOrder(){
+
+        Queue<BinaryNode> q = new LinkedList<BinaryNode>();         // creation of queue using linked list
+        q.add(root);
+
+        while (!q.isEmpty()) {
+            BinaryNode currentNode = q.remove();
+            System.out.println( currentNode.value + " ");
+
+            if (currentNode.left != null) {
+                q.add(currentNode.left);
+            }
+            if (currentNode.left != null) {
+                q.add(currentNode.left); 
+            }
+        }
     }
 }
 public class binaryTreeLL {
