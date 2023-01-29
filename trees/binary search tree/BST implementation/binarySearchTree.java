@@ -109,6 +109,55 @@ class BST{
         return search(node.right, key);
        }
     }
+
+    // ----------------- deletion in BST ----------------
+
+    // minimum node
+
+    public BinaryNode minimumNode(BinaryNode root){
+        if (root.left == null) {
+            return root;
+        }
+        else{
+            return minimumNode(root.left);            
+        }
+    }
+
+    // delete node
+
+    public BinaryNode delete(BinaryNode root , int value){
+    
+        if (root == null) {
+            System.out.println(value + " not found in BST");
+            return null;
+        }
+        
+        if (value < root.value) {                             
+            root.left = delete(root.left, value);                    // find node in left subtree
+        }
+        else if(value > root.value){
+            root.right = delete(root.right, value);                 // find node in right subtree
+        }
+        else{                                                       // here we perform delete operation
+
+            if (root.left != null && root.right != null) {          //  case-1   if root has two child
+                BinaryNode tempNode = root;
+                BinaryNode minNodeOfRight = minimumNode(tempNode.right);
+                root.value = minNodeOfRight.value;
+                root.right = delete(root.right, minNodeOfRight.value);
+            }
+            else if (root.left != null) {                           // case-2 root has only one child
+                root = root.left;
+            }
+            else if (root.right != null) {
+                root = root.right;                                  // case-2 root has only one child
+            }
+            else {                                                  // case-3 want to delete leaf node
+                root = null;
+            }
+        }
+        return root;
+    }
   
 }
 public class binarySearchTree {
@@ -130,11 +179,13 @@ public class binarySearchTree {
         System.out.println();
         bst.postOrder(bst.root);                                     // output : 10 30 20 70 80 60
         System.out.println();
-        bst.levelOrder();                                           // output : 60 20 80 10 30 70
+        bst.levelOrder();                                           // output : 60 20 80 10 30 70 (before deletion)
         System.out.println();
 
         bst.search(bst.root,60);                                    // output : 60 found in BST
         bst.search(bst.root ,600);                                  // output : 600 not found in BST
         
+        bst.delete(bst.root, 60);
+        bst.levelOrder();                                           // output : 70 20 80 10 30  (after deletion)
     }
 }
