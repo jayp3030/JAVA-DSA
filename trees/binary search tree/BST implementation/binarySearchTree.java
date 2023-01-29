@@ -158,6 +158,13 @@ class BST{
         }
         return root;
     }
+
+    // deletion of entire BST
+
+    public void deletionEntireBST(){
+        root = null;
+        System.out.println("Entire BST is deleted");
+    }
   
 }
 public class binarySearchTree {
@@ -187,5 +194,8 @@ public class binarySearchTree {
         
         bst.delete(bst.root, 60);
         bst.levelOrder();                                           // output : 70 20 80 10 30  (after deletion)
+        System.out.println();
+
+        bst.deletionEntireBST();                                    // output : Entire BST is deleted
     }
 }
