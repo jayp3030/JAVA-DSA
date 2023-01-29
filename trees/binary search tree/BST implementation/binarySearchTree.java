@@ -45,6 +45,17 @@ class BST{
         preOrder(node.left);
         preOrder(node.right);
     }
+     
+    // inOreder
+    public void inOrder(BinaryNode node){
+        if (node == null) {
+            return;
+        }
+        inOrder(node.left);
+        System.out.print(node.value +" ");
+        inOrder(node.right);
+    }
+  
 }
 public class binarySearchTree {
     public static void main(String[] args) {
@@ -59,6 +70,9 @@ public class binarySearchTree {
         bst.insert(70);                                             // output : 70 successfully inserted
 
 
-        bst.preOrder(bst.root);
+        bst.preOrder(bst.root);                                     // output : 60 20 10 30 80 70 
+        System.out.println();
+        bst.inOrder(bst.root);                                     // output : 10 20 30 60 70 80  
+        
     }
 }
