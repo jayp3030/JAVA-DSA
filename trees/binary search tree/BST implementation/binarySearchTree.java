@@ -17,11 +17,11 @@ class BST{
 
     private BinaryNode insertion(BinaryNode currentNode , int value){
 
-        if (currentNode== null) {
+        if (currentNode == null) {
             BinaryNode node = new BinaryNode();
             node.value = value;
             System.out.println(value + " successfully inserted");
-            return currentNode;
+            return node;
         } else if (value <= currentNode.value) {
             currentNode.left = insertion(currentNode.left, value);
             return currentNode;
@@ -30,9 +30,20 @@ class BST{
            return currentNode; 
         }
     }
-
+ 
     public void insert(int nodeValue){
-        insertion(root, nodeValue);
+       root = insertion(root, nodeValue);
+    }
+
+    // preOrder traversal in BST
+
+    public void preOrder(BinaryNode node){
+        if (node == null) {
+            return;
+        }
+        System.out.print(node.value +" ");
+        preOrder(node.left);
+        preOrder(node.right);
     }
 }
 public class binarySearchTree {
@@ -46,5 +57,8 @@ public class binarySearchTree {
         bst.insert(80);                                             // output : 80 successfully inserted
         bst.insert(10);                                             // output : 10 successfully inserted
         bst.insert(70);                                             // output : 70 successfully inserted
+
+
+        bst.preOrder(bst.root);
     }
 }
