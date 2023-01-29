@@ -163,6 +163,13 @@ class BH {
             return deletedVal;
         }
     }
+
+    // deletion of entire BH
+
+    public void deletionOfBH(){
+        arr = null;
+        System.out.println("entire BH is deleted");
+    }
 }
 
 public class binaryHeap {
@@ -180,6 +187,8 @@ public class binaryHeap {
 
         bh.deleteRootOfBH("Max");
         bh.levelOrder();                                            // output : 40 30 20 10 (after deletion)
+
+        bh.deletionOfBH();                                          // output : entire BH is deleted
 
     }
 }
