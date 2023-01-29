@@ -89,6 +89,26 @@ class BST{
             }
         }
     }
+
+    // searching in BST
+
+    public BinaryNode search(BinaryNode node ,int key){
+
+       if (node == null) {
+        System.out.println(key +" not found in BST");
+        return null;
+       }
+       else if (node.value == key) {
+        System.out.println(key + " found in BST");
+        return node;
+       }
+       else if (key <= node.value) {
+        return search(node.left, key);
+       }
+       else{
+        return search(node.right, key);
+       }
+    }
   
 }
 public class binarySearchTree {
@@ -111,6 +131,10 @@ public class binarySearchTree {
         bst.postOrder(bst.root);                                     // output : 10 30 20 70 80 60
         System.out.println();
         bst.levelOrder();                                           // output : 60 20 80 10 30 70
+        System.out.println();
+
+        bst.search(bst.root,60);                                    // output : 60 found in BST
+        bst.search(bst.root ,600);                                  // output : 600 not found in BST
         
     }
 }
