@@ -55,6 +55,16 @@ class BST{
         System.out.print(node.value +" ");
         inOrder(node.right);
     }
+
+    // postOreder
+    public void postOrder(BinaryNode node){
+        if (node == null) {
+            return;
+        }
+        postOrder(node.left);
+        postOrder(node.right);
+        System.out.print(node.value +" ");
+    }
   
 }
 public class binarySearchTree {
@@ -73,6 +83,8 @@ public class binarySearchTree {
         bst.preOrder(bst.root);                                     // output : 60 20 10 30 80 70 
         System.out.println();
         bst.inOrder(bst.root);                                     // output : 10 20 30 60 70 80  
+        System.out.println();
+        bst.postOrder(bst.root);                                     // output : 10 30 20 70 80 60
         
     }
 }
