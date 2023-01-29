@@ -38,8 +38,8 @@ class BH{
     // levelOrder traversal
 
     public void levelOrder(){
-        for (int i = 1; i <sizeOfHeap; i++) {
-            System.out.println(arr[i] + " ");
+        for (int i = 1; i <=sizeOfHeap; i++) {
+            System.out.print(arr[i] + " ");
         }
         System.out.println();
     }
@@ -73,12 +73,27 @@ class BH{
 
         heapifyBottomToTop(parent, heapType);                       // check for all nodes
     }
+
+    // insertion in binary heap
+
+    public void insert(int nodeValue , String heapType){
+        arr[sizeOfHeap+1] = nodeValue;
+        sizeOfHeap++;
+        heapifyBottomToTop(sizeOfHeap, heapType); 
+        System.out.println(nodeValue + " inserted successfully");
+    }
 }
 public class binaryHeap {
     public static void main(String[] args) {
         BH bh = new BH(5);                                          // output : Binary heap has been created
 
-        bh.peek();                                                  // output : heap is empty
-        System.out.println(bh.sizeOfBH());                          // output : 0
+        bh.insert(10, "Max");                                       // output : 10 inserted successfully
+        bh.insert(20, "Max");                                       // output : 20 inserted successfully
+        bh.insert(30, "Max");                                       // output : 30 inserted successfully
+        bh.insert(40, "Max");                                       // output : 40 inserted successfully
+        bh.insert(50, "Max");                                       // output : 50 inserted successfully
+        
+        bh.levelOrder();                                            // output : 50 40 20 10 30
+        System.out.println(bh.peek());                              // output : 50
     }
 }
