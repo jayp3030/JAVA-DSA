@@ -1,3 +1,5 @@
+import java.util.*;
+import java.util.LinkedList;
 class BinaryNode{
     public int value;
     public BinaryNode left;
@@ -46,7 +48,8 @@ class BST{
         preOrder(node.right);
     }
      
-    // inOreder
+    // inOreder traversal
+
     public void inOrder(BinaryNode node){
         if (node == null) {
             return;
@@ -56,7 +59,8 @@ class BST{
         inOrder(node.right);
     }
 
-    // postOreder
+    // postOreder traversal
+
     public void postOrder(BinaryNode node){
         if (node == null) {
             return;
@@ -64,6 +68,26 @@ class BST{
         postOrder(node.left);
         postOrder(node.right);
         System.out.print(node.value +" ");
+    }
+
+    // levelOrder traversal
+
+    public void levelOrder(){
+        Queue<BinaryNode> q = new LinkedList<BinaryNode>();
+        q.add(root);
+
+        while(!q.isEmpty()){
+            BinaryNode currentNode = q.remove();
+            System.out.print(currentNode.value+ " ");
+            if (currentNode.left != null) {
+                q.add(currentNode.left);
+            }
+            if (currentNode.right != null) {
+                q.add(currentNode.right);
+            }{
+                
+            }
+        }
     }
   
 }
@@ -85,6 +109,8 @@ public class binarySearchTree {
         bst.inOrder(bst.root);                                     // output : 10 20 30 60 70 80  
         System.out.println();
         bst.postOrder(bst.root);                                     // output : 10 30 20 70 80 60
+        System.out.println();
+        bst.levelOrder();                                           // output : 60 20 80 10 30 70
         
     }
 }
