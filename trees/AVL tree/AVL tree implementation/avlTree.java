@@ -191,6 +191,6 @@ public class avlTree {
         at.insert(15);
         at.insert(20);
 
-        at.levelOrder();
+        at.levelOrder();                                            // output : 10 5 15 20
     }
 }
