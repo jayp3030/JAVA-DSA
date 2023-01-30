@@ -250,6 +250,13 @@ class AVL{
    root = deleteNode(root, value);
  }
 
+ // delete entire AVL tree
+
+ public void deleteAVL(){
+    root = null;
+    System.out.println("Entire AVL tree is deleted");
+ }
+
 }
 public class avlTree {
     public static void main(String[] args) {
@@ -264,5 +271,8 @@ public class avlTree {
         at.delete(5);
         System.out.println();
         at.levelOrder();                                            // output : 15 10 20
+        System.out.println();
+
+        at.deleteAVL();                                             // output : Entire AVL tree is deleted
     }
 }
