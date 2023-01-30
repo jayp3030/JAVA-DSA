@@ -5,6 +5,10 @@ class BinaryNode{
     public int height;
     public BinaryNode left;
     public BinaryNode right;
+
+    public BinaryNode(){
+        this.height = 0;
+    }
 }
 class AVL{
 
@@ -86,6 +90,53 @@ class AVL{
             return search(node.right, key);
         }
     }
+
+    // getHeight of node
+
+    public int getHeight(BinaryNode node){
+        if (node == null) {
+            return 0;
+        }
+        return node.height;
+    }
+
+    // rotate right 
+
+    private BinaryNode rotateRight(BinaryNode disbalancedNode){
+
+        BinaryNode newRoot = disbalancedNode.left;
+        disbalancedNode.left = disbalancedNode.left.right;
+        newRoot.right = disbalancedNode;
+
+        disbalancedNode.height = 1 + Math.max(getHeight(disbalancedNode.left), getHeight(disbalancedNode.right));
+        newRoot.height = 1 + Math.max(getHeight(newRoot.left), getHeight(newRoot.right));
+
+        return newRoot;
+    }
+
+    // rotate left
+
+    private BinaryNode rotateLeft(BinaryNode disbalancedNode){
+
+        BinaryNode newRoot = disbalancedNode.right;
+        disbalancedNode.right = disbalancedNode.right.left;
+        newRoot.left = disbalancedNode;
+
+        disbalancedNode.height = 1 + Math.max(getHeight(disbalancedNode.left), getHeight(disbalancedNode.right));
+        newRoot.height = 1 + Math.max(getHeight(newRoot.left), getHeight(newRoot.right));        
+
+        return newRoot;
+    }
+
+    // getBalance
+
+    public int getBalance(BinaryNode node){
+        if (node == null) {
+            return 0;
+        }
+        return getBalance(node.left) - getBalance(node.right);
+    }
+
 }
 public class avlTree {
     public static void main(String[] args) {
