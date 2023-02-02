@@ -1,18 +1,23 @@
-class Sort{
-    void BUbbleSort(int arr[]){
+class Sort {
 
-        for (int i = 0; i < arr.length-1; i++) {
-            for (int j = 0; j < arr.length-i-1; j++) {
-                if (arr[j] > arr[j+1]) {
-                    int temp = arr[j];
-                    arr[j] = arr[j+1];
-                    arr[j+1] = temp;
+    void SelectionSort(int arr[]){
+
+        for (int i = 0; i < arr.length; i++) {
+            int minIndex = i;
+
+            for (int j = i+1; j < arr.length; j++) {
+                if (arr[j] < arr[minIndex]) {
+                    minIndex = j;
                 }
             }
+
+            int temp = arr[minIndex];
+            arr[minIndex] = arr[i];
+            arr[i] = temp;
         }
     }
 }
-public class bubbleSort {
+public class selectionSort {
     public static void main(String[] args) {
 
         int arr[] = { 3,21,4,1,0,32,45};
@@ -22,9 +27,9 @@ public class bubbleSort {
         }
         System.out.println();
 
-        Sort bs = new Sort();
+        Sort ss = new Sort();
 
-        bs.BUbbleSort(arr);
+        ss.SelectionSort(arr);
 
         for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i]+ " ");                          // output : 0 1 3 4 21 32 45
