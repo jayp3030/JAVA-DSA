@@ -1,7 +1,7 @@
 class Sort{
     void QuickSort(int arr[] , int start , int end){
         if (start<end) {
-            int  locOfPivot = partition(arr ,  start ,  end);
+            int  locOfPivot = partition(arr ,  start ,  end);       // it gives the position of pivot element
             QuickSort(arr, start, locOfPivot-1);
             QuickSort(arr, locOfPivot+1, end);
         }
@@ -14,21 +14,21 @@ class Sort{
         int right = end;
 
        while (left<right) {
-            while (arr[left] <= pivot) {
+            while (arr[left] <= pivot) {                            // move left pointer untill we found element greater than pivot
                 left++;
             }
-            while (arr[right] > pivot) {
+            while (arr[right] > pivot) {                            // move right pointer untill we found element less than pivot
                 right--;
             }
 
-            if (left< right) {
+            if (left< right) {                                      // then swap left and right
                 int temp = arr[left];
                 arr[left] = arr[right];
                 arr[right] = temp;
             }
        }
 
-       int temp = arr[right];
+       int temp = arr[right];                                       // swap right and pivot
        arr[right] = arr[start];
        arr[start] = temp;
 
