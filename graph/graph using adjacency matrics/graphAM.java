@@ -1,8 +1,10 @@
 import java.util.*;
+import java.util.LinkedList;
 
 class GraphNode{
     String name;
     int index ;
+    public boolean visited = false;
 
     public GraphNode(String nameValue , int indexValue){
         this.name = nameValue;
@@ -10,6 +12,7 @@ class GraphNode{
     }
 }
 class Graph{
+
     ArrayList<GraphNode> nodeList = new ArrayList<GraphNode>();
     int [][] adjacencyMatrics ;
 
@@ -42,8 +45,54 @@ class Graph{
           s.append("\n");
         }
         return s.toString();
+    }
+
+    // get neighbors method -helper method for BFS
+
+    public ArrayList<GraphNode> getNeighbor(GraphNode node){
+
+      ArrayList<GraphNode> neighbors = new ArrayList<GraphNode>();
+      int nodeIndex = node.index;
+
+      for (int i = 0; i < adjacencyMatrics.length; i++) {
+          if (adjacencyMatrics[nodeIndex][i] == 1) {
+            neighbors.add(nodeList.get(i));
+          }
       }
 
+      return neighbors;
+    }
+
+    // bfs visit 
+
+    public void bfsVisit(GraphNode node){
+      Queue<GraphNode> q = new LinkedList<GraphNode>();
+
+      q.add(node);
+
+      while (!q.isEmpty()) {
+        GraphNode currentNode = q.remove();
+        currentNode.visited = true;
+        System.out.print(currentNode.name+" ");
+
+        ArrayList<GraphNode> neighbors = getNeighbor(currentNode);
+
+        for (GraphNode neighbor : neighbors) {
+          if (!neighbor.visited) {
+            q.add(neighbor);
+            neighbor.visited = true;
+          }
+        }
+      }
+    }
+
+    void BFS(){
+      for (GraphNode node: nodeList) {
+        if (!node.visited) {
+          bfsVisit(node);
+        }
+      }
+    }
 }
 public class graphAM {
     public static void main(String[] args) {
@@ -76,6 +125,8 @@ public class graphAM {
        //             C: 1 0 0 1 0
        //             D: 1 0 1 0 1
        //             E: 0 1 0 1 0
+
+       g.BFS();                                                     // output : A B C D E
 
     }
 }
