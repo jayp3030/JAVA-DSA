@@ -80,6 +80,36 @@ class Graph{
     }
   }
 
+  // dfsVisit
+
+  void dfsVisit(GraphNode node){
+    Stack<GraphNode> s = new Stack<GraphNode>();
+    s.push(node);
+
+    while (!s.isEmpty()) {
+        GraphNode currentNode = s.pop();
+        currentNode.visited = true;
+        System.out.print(currentNode.name+" ");
+
+        for (GraphNode neighbor : currentNode.neighbors) {
+            if (!neighbor.visited) {
+                s.push(neighbor);
+                neighbor.visited = true;
+            }
+        }
+    }
+  }
+
+  // DFS
+
+  void DFS(){
+    for (GraphNode node : nodeList) {
+        if (!node.visited) {
+            dfsVisit(node);
+        }
+    }
+  }
+
 }
 public class graphAL {
     public static void main(String[] args) {
@@ -115,5 +145,6 @@ public class graphAL {
         //   E: B -> D
 
         g.BFS();                                                    // output : A B C D E
+        g.DFS();                                                    // output : A D E C B
     }
 }
