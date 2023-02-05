@@ -71,16 +71,16 @@ class Graph{
       q.add(node);
 
       while (!q.isEmpty()) {
-        GraphNode currentNode = q.remove();
-        currentNode.visited = true;
+        GraphNode currentNode = q.remove();                         // dequeue first element of queue
+        currentNode.visited = true;                                 // mark as visited
         System.out.print(currentNode.name+" ");
 
-        ArrayList<GraphNode> neighbors = getNeighbor(currentNode);
+        ArrayList<GraphNode> neighbors = getNeighbor(currentNode);  // add neighbors of it to neighbors arraylist
 
         for (GraphNode neighbor : neighbors) {
-          if (!neighbor.visited) {
-            q.add(neighbor);
-            neighbor.visited = true;
+          if (!neighbor.visited) {                                  
+            q.add(neighbor);                                        // if neighor is not visited then add it to queue
+            neighbor.visited = true;                                // and mark as visited
           }
         }
       }

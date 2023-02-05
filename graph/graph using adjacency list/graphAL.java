@@ -1,8 +1,10 @@
 import java.util.*;
+import java.util.LinkedList;
 
 class GraphNode{
     String name;
     int index ;
+    boolean visited = false;
 
     ArrayList<GraphNode> neighbors = new ArrayList<GraphNode>(); 
 
@@ -47,6 +49,37 @@ class Graph{
         return s.toString();
   }
 
+  // bfsVisit
+
+  void bfsVisit(GraphNode node){
+
+    Queue<GraphNode> q = new LinkedList<GraphNode>();
+    q.add(node);
+
+    while (!q.isEmpty()) {
+        GraphNode currentNode = q.remove();
+        currentNode.visited = true;
+        System.out.print(currentNode.name+" ");
+
+        for (GraphNode neighbor : currentNode.neighbors) {
+            if (!neighbor.visited) {
+                q.add(neighbor);
+                neighbor.visited = true;
+            }
+        }
+    }
+  }
+
+  // BFS
+
+  void BFS(){
+    for (GraphNode node : nodeList) {
+        if (!node.visited) {
+            bfsVisit(node);
+        }
+    }
+  }
+
 }
 public class graphAL {
     public static void main(String[] args) {
@@ -80,5 +113,7 @@ public class graphAL {
         //   C: A -> D
         //   D: A -> C -> E
         //   E: B -> D
+
+        g.BFS();                                                    // output : A B C D E
     }
 }
