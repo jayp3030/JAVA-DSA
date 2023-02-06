@@ -5,6 +5,7 @@ class GraphNode{
     String name;
     int index ;
     public boolean visited = false;
+    GraphNode parent;
 
     public GraphNode(String nameValue , int indexValue){
         this.name = nameValue;
@@ -125,6 +126,42 @@ class Graph{
         }
       }
     }
+
+     // path printing
+
+    public void printPath(GraphNode node){
+      if (node.parent != null) {
+          printPath(node.parent);
+      }
+      System.out.print(node.name+" ");
+    }
+
+    // BFSForSSSP
+
+    public void BFSForSSSP(GraphNode node){
+      Queue<GraphNode> q = new LinkedList<GraphNode>();
+      q.add(node);
+
+      while (!q.isEmpty()) {
+        GraphNode currentNode = q.remove();
+        currentNode.visited =true;
+        System.out.print("printing path for "+currentNode.name+" : ");
+        printPath(currentNode);
+        System.out.println();
+
+        ArrayList<GraphNode> neighbors = getNeighbor(currentNode);
+
+        for (GraphNode neighbor : neighbors) {
+            if (!neighbor.visited) {
+              q.add(neighbor);
+              neighbor.visited = true;
+              neighbor.parent = currentNode;
+            }
+        }
+      }
+    }
+
+
 }
 public class graphAM {
     public static void main(String[] args) {
@@ -160,6 +197,17 @@ public class graphAM {
 
        g.BFS();                                                     // output : A B C D E
        g.DFS();                                                     // output : A D E C B 
+
+       System.out.println();
+       g.BFSForSSSP(nodeList.get(0));
+
+       // output :
+
+      //  printing path for A : A
+      //  printing path for B : A B
+      //  printing path for C : A C
+      //  printing path for D : A D
+      //  printing path for E : A B E
 
     }
 }
