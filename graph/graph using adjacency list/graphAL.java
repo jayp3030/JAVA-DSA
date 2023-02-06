@@ -5,6 +5,7 @@ class GraphNode{
     String name;
     int index ;
     boolean visited = false;
+    GraphNode parent;
 
     ArrayList<GraphNode> neighbors = new ArrayList<GraphNode>(); 
 
@@ -110,6 +111,38 @@ class Graph{
     }
   }
 
+  // path printing
+
+  public void printPath(GraphNode node){
+    if (node.parent != null) {
+        printPath(node.parent);
+    }
+    System.out.print(node.name+" ");
+  }
+
+  // BFSForSSSP
+
+  public void BFSForSSSP(GraphNode node){
+        Queue<GraphNode> q = new LinkedList<GraphNode>();
+        q.add(node);
+
+        while (!q.isEmpty()) {
+            GraphNode currentNode = q.remove();
+            currentNode.visited = true;
+            System.out.print("printing path for "+currentNode.name+" : ");
+            printPath(currentNode);
+            System.out.println();
+
+            for (GraphNode neighbor : currentNode.neighbors) {
+                if (! neighbor.visited) {
+                    q.add(neighbor);
+                    neighbor.visited = true;
+                    neighbor.parent = currentNode;
+                }
+            }
+        }
+  }
+
 }
 public class graphAL {
     public static void main(String[] args) {
@@ -144,7 +177,19 @@ public class graphAL {
         //   D: A -> C -> E
         //   E: B -> D
 
-        g.BFS();                                                    // output : A B C D E
-        g.DFS();                                                    // output : A D E C B
+        // g.BFS();                                                    // output : A B C D E
+        System.out.println();
+        // g.DFS();                                                    // output : A D E C B
+
+        g.BFSForSSSP(nodeList.get(0));
+
+        // output :
+
+        // printing path for A : A 
+        // printing path for B : A B
+        // printing path for C : A C
+        // printing path for D : A D
+        // printing path for E : A B E
+
     }
 }
