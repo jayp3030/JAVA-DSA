@@ -27,5 +27,10 @@ public class numberFactor {
         System.out.println("way to get 4 is = "+wayToGetN(4));
         System.out.println("way to get 5 is = "+wayToGetN(5));
         System.out.println("way to get 6 is = "+wayToGetN(6));
+
+        // output:
+        // way to get 4 is = 4
+        // way to get 5 is = 6
+        // way to get 6 is = 9
     }
 }
