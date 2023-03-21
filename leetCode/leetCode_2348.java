@@ -28,10 +28,12 @@ class Solution {
     public long zeroFilledSubarray(int[] nums) {
         long res = 0;
 
-        for(int i = 0 ; i < nums.length ; i++){
+        for (int i = 0; i < nums.length; i++) {
             int curr = 0;
 
-            while( i < nums.length && nums[i] == 0){
+            // we check for consecutive 0s if consecutive 0s are n then number of subarray
+            // formed for 0s are 1+2+3...n
+            while (i < nums.length && nums[i] == 0) {
                 curr++;
                 res += curr;
                 i++;
