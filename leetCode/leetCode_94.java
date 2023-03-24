@@ -28,7 +28,7 @@
  *     }
  * }
  */
-
+// ------------------------------------- recursive approach ---------------------------------------------- 
 class Solution {
     public List<Integer> inorderTraversal(TreeNode root) {
         List<Integer> result = new ArrayList<>();
@@ -47,5 +47,48 @@ class Solution {
         tree(root.left , result);
         result.add(root.val);
         tree(root.right , result);
+    }
+}
+
+
+// -------------------------------------- iterative approach ------------------------------------------- 
+
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public List<Integer> inorderTraversal(TreeNode root) {
+        List<Integer> res = new ArrayList<>();
+        Stack<TreeNode> tovisit = new Stack<>();
+
+        TreeNode curr = root;
+
+        while( curr != null || !tovisit.isEmpty()){
+          // in inorder - left root right
+          // so first we push all the left node of root 
+          while(curr != null){
+            tovisit.push(curr);
+            curr = curr.left;
+          }
+          // now on the top of stack last leftnode so we pop it and add to res
+          curr = tovisit.pop();
+          res.add(curr.val);
+          curr = curr.right;
+        }
+        return res;
+        
+       
     }
 }
