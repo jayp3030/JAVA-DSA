@@ -11,16 +11,3 @@
 // Input: grid = [[1,2,3],[4,5,6]]
 // Output: 12
 
-class Solution {
-    public int minPathSum(int[][] grid) {
-        int row = grid.length-1;
-        int col = grid[0].length-1;
-        return helper(grid , row , col);
-    }
-    private int helper(int[][] grid , int row , int col){
-
-        if( row < 0 || col < 0 ) return Integer.MAX_VALUE;
-        if( row == 0 && col == 0 ) return grid[0][0];
-        return grid[row][col] + Math.min(helper(grid , row-1 , col) , helper(grid , row , col-1));
-    }
-}
