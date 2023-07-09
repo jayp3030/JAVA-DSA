@@ -37,6 +37,7 @@ class Node {
 
 class Solution {
     public Node copyRandomList(Node head) {
+        if(head == null) return null;
         Node curr = head;
 
         // setting each nodes next with the node's val
@@ -64,8 +65,8 @@ class Solution {
         Node res = copy;
 
         while(original != null){
-            original.next = original.next.next;
-            copy.next = copy.next.next;
+            if(original.next != null) original.next = original.next.next;
+            if(copy.next != null) copy.next = copy.next.next;
             original = original.next;
             copy = copy.next;
         }
